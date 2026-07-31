@@ -3,14 +3,15 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "my-library"
-version = "0.1.0"
-description = "My awesome library"
+name = "terrajin"
+version = "1.0.0"
+description = "Python Terrain generation Game framework"
 readme = "README.md"
 requires-python = ">=3.10"
 
 authors = [
-    {name="Your Name"}
+    {name = "Sylvie Sylv Sylv"},
+    {name = "Rawsie"}
 ]
 
 dependencies = []
