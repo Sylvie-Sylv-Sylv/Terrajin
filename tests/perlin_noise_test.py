@@ -1,20 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from terrajin.math.perlin_noise import perlin_noise_2d
+from terrajin.math.noise.gradient_noise.perlin_noise import PerlinNoise2D
 
 # Parameters
 WIDTH = 512
 HEIGHT = 512
-SCALE = 128.0
+SCALE = 16.0
 SEED = 1337
 
 image = np.zeros((HEIGHT, WIDTH), dtype=np.float32)
 
+noise_gen = PerlinNoise2D(SEED)
+
 for y in range(HEIGHT):
     for x in range(WIDTH):
-        image[y, x] = perlin_noise_2d(
-            SEED,
+        image[y, x] = noise_gen(
             x / SCALE,
             y / SCALE,
         )

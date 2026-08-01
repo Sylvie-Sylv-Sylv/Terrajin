@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from terrajin.math.open_simplex2s_noise import open_simplex2s_noise_2d
+from terrajin.math.noise.gradient_noise.open_simplex2s_noise import OpenSimplex2SNoise2D
 
 # Parameters
 WIDTH = 512
@@ -11,12 +11,13 @@ SEED = 1337
 
 image = np.zeros((HEIGHT, WIDTH), dtype=np.float32)
 
+noise_gen = OpenSimplex2SNoise2D(seed=SEED)
+
 for y in range(HEIGHT):
     for x in range(WIDTH):
-        image[y, x] = open_simplex2s_noise_2d(
-            SEED,
+        image[y, x] = noise_gen(
             x / SCALE,
-            y / SCALE,
+            y / SCALE
         )
 
 plt.figure(figsize=(8, 8))
